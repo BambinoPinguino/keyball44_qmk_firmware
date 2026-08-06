@@ -20,6 +20,30 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
+enum {
+    OLED_BONGO = SAFE_RANGE,
+    OLED_INFO,
+};
+
+static bool bongo_mode_enabled = true;
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (!record->event.pressed) {
+        return true;
+    }
+
+    switch (keycode) {
+        case OLED_BONGO:
+            bongo_mode_enabled = true;
+            return false;
+        case OLED_INFO:
+            bongo_mode_enabled = false;
+            oled_on();
+            return false;
+    }
+    return true;
+}
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // colemak
@@ -43,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                                      KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,
     KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                                      KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,
     KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                                      KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,
-              TO(0)    , TO(7)    , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                            KC_TRNS  , KC_TRNS  , QK_BOOT
+              TO(0)    , TO(7)    , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                            OLED_BONGO  , OLED_INFO  , QK_BOOT
   ),
 
   // func
@@ -109,10 +133,27 @@ void keyboard_post_init_user(void) {
 #ifdef OLED_ENABLE
 
 #    include "lib/oledkit/oledkit.h"
+#    include "bongocat.h"
 
 void oledkit_render_info_user(void) {
     // keyball_oled_render_keyinfo();
     keyball_oled_render_ballinfo();
     keyball_oled_render_layerinfo();
+}
+
+bool oled_task_user(void) {
+    if (is_keyboard_master()) {
+        if (bongo_mode_enabled) {
+            render_bongocat();
+            oled_set_cursor(14, 0);
+            oled_write_P(PSTR("WPM:"), false);
+            oled_write(get_u8_str(get_current_wpm(), '0'), false);
+        } else {
+            oledkit_render_info_user();
+        }
+    } else {
+        oledkit_render_logo_user();
+    }
+    return true;
 }
 #endif
