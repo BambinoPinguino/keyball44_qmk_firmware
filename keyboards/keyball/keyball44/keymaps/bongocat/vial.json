@@ -1,4 +1,5 @@
 {
+  "_note": "Vial is not functional for this build at the moment; this file is kept for reference only.",
   "name": "Keyball44 Bongocat",
   "lighting": "qmk_rgblight",
   "matrix": { "rows": 8, "cols": 6 },
