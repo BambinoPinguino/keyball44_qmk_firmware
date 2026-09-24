@@ -1,4 +1,9 @@
 {
+  "name": "Keyball44 Right Ball",
+  "vendorId": "0x5957",
+  "productId": "0x0400",
+  "matrix": { "rows": 8, "cols": 6 },
+  "lighting": "qmk_rgblight",
   "layouts": {
     "labels": [
       [ "Ball availability", "None", "Right", "Left", "Dual" ]
