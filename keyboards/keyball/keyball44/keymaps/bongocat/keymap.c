@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // colemak
   [0] = LAYOUT_right_ball(
     KC_ESC   , KC_Q     , KC_W     , LT(3,KC_F)   , KC_P     , KC_B     ,                                      KC_J     , KC_L     , KC_U     , KC_Y     , KC_SCLN  , KC_BSLS  ,
-    KC_TAB   , LSFT_T(KC_A) , LT(8,KC_R)   , LT(1,KC_S)   , LT(6,KC_T)   , KC_G     ,                       KC_M     , LT(6,KC_N)   , LT(1,KC_E)   , LT(8,KC_I)   , RSFT_T(KC_O) , KC_QUOT  ,
+    KC_TAB   , LSFT_T(KC_A) , LT(4,KC_R)   , LT(1,KC_S)   , LT(6,KC_T)   , KC_G     ,                       KC_M     , LT(6,KC_N)   , LT(1,KC_E)   , LT(4,KC_I)   , RSFT_T(KC_O) , KC_QUOT  ,
     KC_LSFT  , LGUI_T(KC_Z) , LALT_T(KC_X) , LCTL_T(KC_C) , KC_D     , KC_V     ,                       KC_K     , KC_H     , RCTL_T(KC_COMM) , RALT_T(KC_DOT) , RGUI_T(KC_SLSH) , KC_DEL   ,
               KC_LCTL , KC_LALT , LT(5,KC_LGUI) , KC_BSPC , LT(2,KC_TAB) ,                      KC_SPC  , KC_ENT  , MS_BTN1
   ),
@@ -78,10 +78,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                            KC_TRNS  , KC_TRNS  , KC_TRNS
   ),
 
-  // mouse (automouse layer)
+  // mouse (merged keymouse into automouse)
   [4] = LAYOUT_right_ball(
-    KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                                      KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,
-    KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                                      KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,
+    KC_TRNS  , KC_TRNS  , KC_TRNS  , MS_BTN3  , KC_TRNS  , KC_TRNS  ,                                      MS_WHLU  , MS_BTN4  , MS_UP    , MS_BTN5  , KC_TRNS  , KC_TRNS  ,
+    KC_TRNS  , KC_TRNS  , KC_TRNS  , MS_BTN2  , MS_BTN1  , KC_TRNS  ,                                      MS_WHLD  , MS_LEFT  , MS_DOWN  , MS_RGHT  , KC_TRNS  , KC_TRNS  ,
     KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                                      KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,
               KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                            KC_TRNS  , KC_TRNS  , KC_TRNS
   ),
@@ -89,14 +89,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // scroll (trackball scroll mode)
   [5] = LAYOUT_right_ball(
     KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                                      KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,
-    KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                                      KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,
+    KC_TRNS  , CW_TOGG  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                                      KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , CW_TOGG  , KC_TRNS  ,
     KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                                      KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,
               KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                            KC_TRNS  , KC_TRNS  , KC_TRNS
   ),
 
   // sym/nav
   [6] = LAYOUT_right_ball(
-    KC_TILD  , KC_TRNS  , KC_EQL   , KC_LCBR  , KC_RCBR  , KC_TRNS  ,                                      KC_PGUP  , KC_HOME  , KC_UP    , KC_END   , KC_TRNS  , KC_TRNS  ,
+    KC_TILD  , KC_TRNS  , KC_EQL   , KC_LCBR  , KC_RCBR  , KC_TRNS  ,                                      KC_PGUP  , KC_HOME  , KC_UP    , KC_END   , KC_TRNS  , KC_INS   ,
     KC_TRNS  , KC_TRNS  , KC_MINS  , KC_LPRN  , KC_RPRN  , KC_TRNS  ,                                      KC_PGDN  , KC_LEFT  , KC_DOWN  , KC_RGHT  , KC_TRNS  , KC_TRNS  ,
     KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_LBRC  , KC_RBRC  , KC_TRNS  ,                                      KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_PSCR  ,
               KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                            KC_TRNS  , KC_TRNS  , KC_TRNS
@@ -108,14 +108,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LSFT  , KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                                      KC_H     , KC_J     , KC_K     , KC_L     , KC_SCLN  , KC_QUOT  ,
     KC_LCTL  , KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                                      KC_N     , KC_M     , KC_COMM  , KC_DOT   , KC_SLSH  , KC_RSFT  ,
               TO(0)    , KC_LALT  , KC_BSPC  , KC_SPC   , LT(2,KC_TAB) ,                            KC_RGUI  , KC_ENT   , MS_BTN1
-  ),
-
-  // keymouse
-  [8] = LAYOUT_right_ball(
-    KC_TRNS  , KC_TRNS  , KC_TRNS  , MS_BTN3  , KC_TRNS  , KC_TRNS  ,                                      MS_WHLU  , MS_BTN4  , MS_UP    , MS_BTN5  , KC_TRNS  , KC_TRNS  ,
-    KC_TRNS  , KC_TRNS  , KC_TRNS  , MS_BTN2  , MS_BTN1  , KC_TRNS  ,                                      MS_WHLD  , MS_LEFT  , MS_DOWN  , MS_RGHT  , KC_TRNS  , KC_TRNS  ,
-    KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                                      KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,
-              KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  , KC_TRNS  ,                            KC_TRNS  , KC_TRNS  , KC_TRNS
   ),
 };
 // clang-format on
