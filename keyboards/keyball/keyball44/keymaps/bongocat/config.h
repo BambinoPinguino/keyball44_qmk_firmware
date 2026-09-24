@@ -34,8 +34,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAP_CODE_DELAY 5
 
+#define DYNAMIC_KEYMAP_LAYER_COUNT 8
+
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
 #define AUTO_MOUSE_DEFAULT_LAYER 4
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 
 // Tap-hold tuning ported from the ZMK config:
 //   &mt { tapping-term-ms = <200>; quick-tap-ms = <150>; }
