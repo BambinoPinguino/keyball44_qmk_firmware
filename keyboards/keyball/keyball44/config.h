@@ -35,6 +35,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define SPLIT_USB_TIMEOUT       500
 
 #define SPLIT_TRANSACTION_IDS_KB KEYBALL_GET_INFO
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 
 // RGB LED settings
 #define WS2812_DI_PIN       GP0
